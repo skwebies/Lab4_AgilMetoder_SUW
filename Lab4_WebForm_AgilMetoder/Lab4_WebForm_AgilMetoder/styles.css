@@ -1,21 +1,41 @@
 ﻿body {
     background:#ededed;
 }
+#header {
+    text-align:center;
+}
+#content {
+    background:#fff;
+    width:600px;
+    margin: auto;
+    min-height:500;
+}
 #form1 {
-max-width:960px;
-width:100%;
-margin-left:auto;
-margin-right:auto;
-background:#fff;
-min-height:500px;
-padding:30px;
-box-shadow:2px 2px 2px 1px rgba(0,0,0,0.4);
-font-family: 'Source Sans Pro', sans-serif;
-
+    width:600px;
+    margin-left:auto;
+    margin-right:auto;
+    background:#fff;
+    min-height:500px;
+    padding:30px;
+    box-shadow:2px 2px 2px 1px rgba(0,0,0,0.4);
+    font-family: 'Source Sans Pro', sans-serif;
+    align-content:center;
 }
 #btnDV {
-margin-top:20px;
+    margin-top:20px;
+    width: 1000px;
 }
 h1 {
     color: blue;
+}
+#txtSet {
+    width: 200px;
+    float:left;
+}
+#display {
+    width: 300px;
+    float:right;
+}
+#footer {
+    text-align:center;
 }

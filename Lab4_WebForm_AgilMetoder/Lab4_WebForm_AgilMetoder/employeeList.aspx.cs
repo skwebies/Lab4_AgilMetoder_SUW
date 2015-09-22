@@ -13,5 +13,15 @@ namespace Lab4_WebForm_AgilMetoder
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void lbDisplay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
