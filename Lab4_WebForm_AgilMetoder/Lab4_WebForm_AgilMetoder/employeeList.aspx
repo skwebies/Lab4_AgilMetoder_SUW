@@ -49,10 +49,6 @@
  
    </div>
         </form>
-
-<div id="footer">
-    <h1 class="logo">Footer</h1>
-</div>
 </body>
 
 </html>
