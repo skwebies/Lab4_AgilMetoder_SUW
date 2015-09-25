@@ -20,20 +20,26 @@
             <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
             <!--Phone Field-->
             <asp:Label ID="lblPhone" runat="server" Text="Phone"></asp:Label>
-            <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
-            <asp:Button ID="Button1" runat="server" Text="Add" />
+            <asp:TextBox ID="txtPhone" runat="server" ></asp:TextBox>
+            <asp:Button ID="Add" runat="server" Text="Add" OnClick="Add_Click" />
         </div>
         <!--button sets-->
         <div id="btnDV">
             <!--view and delete employees-->
-            <asp:Button ID="Button2" runat="server" Text="Delete" />
-            <asp:Button ID="Button3" runat="server" Text="View" />
+            <asp:Label ID="lblDisplay" runat="server" Text="Employees List"></asp:Label>
+          
             
 
         </div>
         <div id="Display">
-            <asp:Label ID="lblDisplay" runat="server" Text="Employees List"></asp:Label>
-            <asp:ListBox ID="lbDisplay" runat="server"></asp:ListBox>
+            <asp:ListBox ID="listbox" runat="server" Height="369px" Width="474px" OnSelectedIndexChanged="listbox_SelectedIndexChanged"></asp:ListBox>
+            
+          
+            
+
+        </div>
+        <div id="delete">
+            <asp:Button ID="Delete" runat="server" Text="Delete" OnClick="Delete_Click" Width="112px" />
         </div>
     </form>
 </body>

@@ -11,12 +11,20 @@ min-height:500px;
 padding:30px;
 box-shadow:2px 2px 2px 1px rgba(0,0,0,0.4);
 font-family: 'Source Sans Pro', sans-serif;
-
+    height: 572px;
 }
 #btnDV {
 margin-top:20px;
+} 
+h1  /*header color */
+{   
+    color:red;
+}   /*delete button*/ 
+#delete{
+    float:right;
+    width: 800px;
+    padding-top:20px;
 }
-h1
-{
-    color:aliceblue;
+#listbox option {
+    margin-right:40px;
 }
