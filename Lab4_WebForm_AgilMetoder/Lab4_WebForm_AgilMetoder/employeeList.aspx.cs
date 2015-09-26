@@ -26,7 +26,7 @@ namespace Lab4_WebForm_AgilMetoder
             InsertEmployees();
             BindEmployees();
             txtClear();
-            
+
         }
 
         //Inserting the Employee details
@@ -56,9 +56,9 @@ namespace Lab4_WebForm_AgilMetoder
                 addEmployees.Add(new AddEmployee(txtName.Text, txtEmail.Text, txtPhone.Text)); // adding the records to the list.
             }
 
-           
 
-            Session["Employees"] =  addEmployees; // setting the session back to addEmployees
+
+            Session["Employees"] = addEmployees; // setting the session back to addEmployees
 
         }
 
@@ -92,27 +92,27 @@ namespace Lab4_WebForm_AgilMetoder
             // for (int i = 0; i < addEmployees.Count; i++) // counting the added records
             // {
             int ischecked = 0;
-                foreach (RepeaterItem item in rptEmployees.Items) // assigning the repeater item as repeated items
+            foreach (RepeaterItem item in rptEmployees.Items) // assigning the repeater item as repeated items
+            {
+                CheckBox chkMark = (CheckBox)item.FindControl("chkMark");
+                Label lblName = (Label)item.FindControl("lblName");
+                Label lblEmail = (Label)item.FindControl("lblEmail");
+                Label lblPhone = (Label)item.FindControl("lblPhone");
+
+
+                if (chkMark.Checked) // using the email as ID to find the checked item as a match
                 {
-                    CheckBox chkMark = (CheckBox)item.FindControl("chkMark");
-                    Label lblName = (Label)item.FindControl("lblName");
-                    Label lblEmail = (Label)item.FindControl("lblEmail");
-                    Label lblPhone = (Label)item.FindControl("lblPhone");
-
-
-                 if (chkMark.Checked) // using the email as ID to find the checked item as a match
+                    for (int i = 0; i < addEmployees.Count; i++) // counting the added records
                     {
-                      for (int i = 0; i < addEmployees.Count; i++) // counting the added records
-                        {
-                          if (addEmployees[i].AddEmail == chkMark.Text)
+                        if (addEmployees[i].AddEmail == chkMark.Text)
                         {
 
                             addEmployees.Remove(addEmployees[i]);
                         }
-                          
-                        }
-                    ischecked = 1;
+
                     }
+                    ischecked = 1;
+                }
 
                 if (chkMark.Checked) // using the email as ID to find the checked item as a match
                 {
@@ -120,13 +120,13 @@ namespace Lab4_WebForm_AgilMetoder
                 }
 
             }
-                if (ischecked==0)
+            if (ischecked == 0)
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage",
                                           "alert('Please check an item to delete');", true);
             }
 
-           // }
+            // }
 
 
 
@@ -139,11 +139,11 @@ namespace Lab4_WebForm_AgilMetoder
 
         }
 
-        
+
         //Strings are get setted on a class called AddEmployee
         public class AddEmployee
         {
-           
+
 
             public string AddName
             {
@@ -168,38 +168,38 @@ namespace Lab4_WebForm_AgilMetoder
                 AddPhone = addPhone;
             }
 
-            
 
-            
+
+
         }
 
         //deleting the records
         protected void btnDelete_Click(object sender, EventArgs e)
         {
 
-            srcRemove();          
-            
+            srcRemove();
+
         }
 
         //selecting all the records
         protected void btnView_Click(object sender, EventArgs e)
         {
 
-             foreach (RepeaterItem item in rptEmployees.Items)
-                {
-                    CheckBox chkMark = (CheckBox)item.FindControl("chkMark");
-                
-                    chkMark.Checked = true;
+            foreach (RepeaterItem item in rptEmployees.Items)
+            {
+                CheckBox chkMark = (CheckBox)item.FindControl("chkMark");
 
-                        
+                chkMark.Checked = true;
 
 
-                }
-         
+
+
+            }
+
 
         }
 
-    
+        // show deleted items in the list.
         protected void btnShow_Click(object sender, EventArgs e)
         {
             if (Session["DeleteEmployees"] != null)
@@ -214,16 +214,16 @@ namespace Lab4_WebForm_AgilMetoder
 
             for (int i = 0; i < deletedEmployees.Count; i++)
             {
-                addEmployees.Add(new AddEmployee(deletedEmployees[i].AddName,deletedEmployees[i].AddEmail,deletedEmployees[i].AddPhone));
+                addEmployees.Add(new AddEmployee(deletedEmployees[i].AddName, deletedEmployees[i].AddEmail, deletedEmployees[i].AddPhone));
 
             }
-            
-            
+
+
 
             BindEmployees();
-            
-        }
 
+        }
+        //Sorting the list by a-z
         protected void lbtnFullName_Click(object sender, EventArgs e)
         {
             if (Session["Employees"] != null)
@@ -239,6 +239,8 @@ namespace Lab4_WebForm_AgilMetoder
             BindEmployees();
         }
 
+
+        //editting the list of items
         protected void lbtnEdit_Click(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)(sender);

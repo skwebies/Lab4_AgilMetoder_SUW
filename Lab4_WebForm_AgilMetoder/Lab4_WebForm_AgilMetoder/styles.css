@@ -1,103 +1,112 @@
 ﻿body {
-    background:#ededed;
+    background: #ededed;
     font-family: 'Source Sans Pro', sans-serif;
 }
-#form1 {
-max-width:960px;
-width:100%;
-margin-left:auto;
-margin-right:auto;
-background:#fff;
-min-height:500px;
-padding:30px;
-box-shadow:2px 2px 2px 1px rgba(0,0,0,0.4);
-font-family: 'Source Sans Pro', sans-serif;
 
+#form1 {
+    max-width: 960px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    min-height: 500px;
+    padding: 30px;
+    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.4);
+    font-family: 'Source Sans Pro', sans-serif;
 }
+
 .logo {
-text-align:center;
-margin-bottom:60px;
-font-family: 'Source Sans Pro', sans-serif;
-padding:10px;
-background:#a4d9ff;
-color:#000;
+    text-align: center;
+    margin-bottom: 60px;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 10px;
+    background: #a4d9ff;
+    color: #000;
 }
 
 #lblDisplay {
-    color:#ff6a00;
-    font-size:16px;
-    font-weight:bold;
+    color: #ff6a00;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 #rfvName {
-    margin-right:40px;
+    margin-right: 40px;
 }
+
 #lblEmail, #lblPhone {
-    margin-left:20px;
+    margin-left: 20px;
 }
+
 #btnShow {
-    float:right;
-    margin-top:-80px;
-     margin-right:350px;
+    float: right;
+    margin-top: -80px;
+    margin-right: 350px;
 }
 
 #txtSet {
-    text-align:left;
-    
+    text-align: left;
 }
-#lblEmail,#lblPhone,#lblName {
-    text-align:right;
+
+#lblEmail, #lblPhone, #lblName {
+    text-align: right;
 }
+
 #btnDV {
-margin-top:40px;
-display:block;
-float:right;
-margin-right:150px;
-margin-bottom:-25px;
+    margin-top: 40px;
+    display: block;
+    float: right;
+    margin-right: 150px;
+    margin-bottom: -25px;
 }
 
 #btnAdd {
-    float:right;
-    margin-top:-80px;
-    margin-right:450px;
+    float: right;
+    margin-top: -80px;
+    margin-right: 450px;
 }
 
 #Display {
-    clear:both;
-    width:900px;
+    clear: both;
+    width: 960px;
+}
 
-}
 #DVbtnOnly {
-    float:right;
-    margin-bottom:-20px;
+    float: right;
+    margin-bottom: -20px;
 }
+
 table tr td {
-    padding-right:100px;
+    padding-right: 100px;
 }
+
 #rfvName {
-    margin-right:30px;
-    text-align:left;
+    margin-right: 30px;
+    text-align: left;
 }
-#txtName,#txtEmail {
-    margin-bottom:20px;
-    
-   
+
+#txtName, #txtEmail {
+    margin-bottom: 20px;
 }
+
 #txtEmail {
-    margin-left:11px;
+    margin-left: 11px;
 }
+
 #txtName {
-    margin-left:2px;
+    margin-left: 2px;
 }
+
 #txtPhone {
-    margin-left:5px;
+    margin-left: 5px;
 }
+
 #hiddenID label {
-    display:none;
+    display: none;
 }
 
 hr {
-    width:90%;
-   float:left;
-   margin-bottom:-20px;
+    width: 90%;
+    float: left;
+    margin-bottom: -20px;
 }
