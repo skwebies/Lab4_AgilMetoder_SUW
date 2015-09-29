@@ -8,28 +8,32 @@ using System.Web.UI.WebControls;
 namespace Lab4_WebForm_AgilMetoder
 {
     public partial class employeeList : System.Web.UI.Page
-    {
+    {   
+        //creating a list to add employees
         private List<AddEmployee> addEmployees;
+        
+        //Creating a list that holds the deleted employees!
         private List<AddEmployee> deletedEmployees;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (!Page.IsPostBack) // checking the page is rendered for first time or loaded for the response of postback
             {
-                Session["Employees"] = new List<AddEmployee>();
-                Session["DeleteEmployees"] = new List<AddEmployee>();
+                Session["Employees"] = new List<AddEmployee>(); // creating a session variable for add employees
+                Session["DeleteEmployees"] = new List<AddEmployee>(); // creating the session variable for delete employees
             }
         }
 
+        //When add button gets clicked this event will take effect!
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            InsertEmployees();
-            BindEmployees();
-            txtClear();
+            InsertEmployees(); // Inserting the employees
+            BindEmployees();   // Bind the inserted employees from the list to repeater at the front end.
+            txtClear();        // Clearing the text box properties after add event fired!
 
         }
 
-        //Inserting the Employee details
+        //Inserting the Employee details to the list!
         private void InsertEmployees()
         {
             if (Session["Employees"] != null) //Session Check for current input
@@ -173,7 +177,7 @@ namespace Lab4_WebForm_AgilMetoder
 
         }
 
-        //deleting the records
+        //deleting the selected records from the list.
         protected void btnDelete_Click(object sender, EventArgs e)
         {
 
@@ -181,19 +185,23 @@ namespace Lab4_WebForm_AgilMetoder
 
         }
 
-        //selecting all the records
+        //selecting all records
         protected void btnView_Click(object sender, EventArgs e)
         {
-
-            foreach (RepeaterItem item in rptEmployees.Items)
+            if (rptEmployees.Items.Count != 0)
             {
-                CheckBox chkMark = (CheckBox)item.FindControl("chkMark");
+                foreach (RepeaterItem item in rptEmployees.Items) // creating item variable 
+                {
+                    CheckBox chkMark = (CheckBox)item.FindControl("chkMark");
 
-                chkMark.Checked = true;
+                    chkMark.Checked = true;
 
+                }
 
-
-
+            }else
+            { // Poping a message when fails to have some records to delete on the list(front end)
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage",
+                                                          "alert('Make sure that you have items on the list to select!');", true);
             }
 
 
@@ -212,6 +220,8 @@ namespace Lab4_WebForm_AgilMetoder
                 addEmployees = (List<AddEmployee>)Session["Employees"];
             }
 
+          
+
             for (int i = 0; i < deletedEmployees.Count; i++)
             {
                 addEmployees.Add(new AddEmployee(deletedEmployees[i].AddName, deletedEmployees[i].AddEmail, deletedEmployees[i].AddPhone));
@@ -223,18 +233,22 @@ namespace Lab4_WebForm_AgilMetoder
             BindEmployees();
 
         }
-        //Sorting the list by a-z
+        //when clicked on first name Column heading list will be sorted as a-z (asc)
         protected void lbtnFullName_Click(object sender, EventArgs e)
         {
-            if (Session["Employees"] != null)
+            if (Session["Employees"] != null) // session check
             {
-                addEmployees = (List<AddEmployee>)Session["Employees"];
+                addEmployees = (List<AddEmployee>)Session["Employees"]; 
             }
 
             addEmployees.Sort(delegate (AddEmployee e1, AddEmployee e2)
             {
                 return e1.AddName.CompareTo(e2.AddName);
+              
             });
+
+
+
 
             BindEmployees();
         }
